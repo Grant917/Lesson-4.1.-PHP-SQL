@@ -5,6 +5,7 @@ $data = json_decode($json, true);
 $tempMin = $data['main']['temp_min'];
 $tempMax = $data['main']['temp_max'];
 $pressure = $data['main']['pressure'];
+$visibility = round($data['visibility']/1000,2);
 
 
 echo <<<HTML
@@ -23,7 +24,8 @@ echo <<<HTML
 Температура: от <strong>$tempMin</strong> до <strong>$tempMax</strong> по Цельсию<br>
 Давление: <strong>{$data['main']['pressure']}</strong> мм ртутного столба<br>
 Влажность: <strong>{$data['main']['humidity']}</strong> %<br>
-Ветер: <strong>{$data['wind']['speed']}</strong> м/c
+Ветер: <strong>{$data['wind']['speed']}</strong> м/c<br>
+Видимость: <strong>$visibility</strong> км<br>
 <p style="text-align: right; font-style: italic">Грант Севинян</p>
 </div>
 </body>
